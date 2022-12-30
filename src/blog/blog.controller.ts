@@ -21,7 +21,7 @@ export class BlogController {
         return res.status(HttpStatus.OK).json(post);
     }
 
-    @Post('/post')
+    @Post('post')
     async addPost(@Res() res, @Body() createPostDTO: CreatePostDTO) {
         const newPost = await this.blogService.addPost(createPostDTO);
         return res.status(HttpStatus.OK).json({
@@ -30,7 +30,7 @@ export class BlogController {
         })
     }
 
-    @Put('/edit')
+    @Put('edit')
     async editPost(
         @Res() res,
         @Query('postID', new ValidateObjectId()) postID,
